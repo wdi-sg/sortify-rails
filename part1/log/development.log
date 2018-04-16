@@ -1,0 +1,504 @@
+  [1m[35m (533.8ms)[0m  [1m[35mCREATE DATABASE "sortify-rails_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (471.2ms)[0m  [1m[35mCREATE DATABASE "sortify-rails_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (24.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (23.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6800769422495965455)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateGenres (20180416151956)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (19.6ms)[0m  [1m[35mCREATE TABLE "genres" ("id" bigserial primary key, "name" character varying, "description" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20180416151956_create_genres.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180416151956"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateSongs (20180416152219)
+  [1m[35m (6.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (22.0ms)[0m  [1m[35mCREATE TABLE "songs" ("id" bigserial primary key, "name" character varying, "genre_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_31272893df"
+FOREIGN KEY ("genre_id")
+  REFERENCES "genres" ("id")
+)[0m
+  ↳ db/migrate/20180416152219_create_songs.rb:3
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_songs_on_genre_id" ON "songs"  ("genre_id")[0m
+  ↳ db/migrate/20180416152219_create_songs.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180416152219"]]
+  ↳ bin/rails:9
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-04-16 15:22:58.263780"], ["updated_at", "2018-04-16 15:22:58.263780"]]
+  ↳ bin/rails:9
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(6800769422495965455)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGenre Create (1.6ms)[0m  [1m[32mINSERT INTO "genres" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "rock"], ["description", "pretty cool"], ["created_at", "2018-04-16 15:44:48.804342"], ["updated_at", "2018-04-16 15:44:48.804342"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Create (3.2ms)[0m  [1m[32mINSERT INTO "songs" ("name", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "happy"], ["genre_id", 1], ["created_at", "2018-04-16 15:45:41.996383"], ["updated_at", "2018-04-16 15:45:41.996383"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSong Load (0.5ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" ORDER BY "songs"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mGenre Load (0.8ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/show" for 127.0.0.1 at 2018-04-17 00:48:09 +0800
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/wenhao/.rbenv/versions/2.3.5/lib/ruby/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (No route matches [GET] "/show"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.0) lib/web_console/middleware.rb:137:in `call_app'
+web-console (3.6.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/show" for 127.0.0.1 at 2018-04-17 00:51:11 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/show"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.0) lib/web_console/middleware.rb:137:in `call_app'
+web-console (3.6.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/genres" for 127.0.0.1 at 2018-04-17 00:51:58 +0800
+Processing by GenresController#index as HTML
+Completed 406 Not Acceptable in 142ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::UnknownFormat (GenresController#index is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.2.0) lib/action_controller/metal/implicit_render.rb:55:in `default_render'
+actionpack (5.2.0) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (5.2.0) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (5.2.0) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (5.2.0) lib/abstract_controller/base.rb:194:in `process_action'
+actionpack (5.2.0) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.2.0) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (5.2.0) lib/active_support/callbacks.rb:132:in `run_callbacks'
+actionpack (5.2.0) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.0) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.0) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.0) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.0) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.0) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.0) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.0) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.0) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.0) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.0) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.0) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.0) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.4) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.4) lib/rack/etag.rb:25:in `call'
+rack (2.0.4) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.4) lib/rack/head.rb:12:in `call'
+actionpack (5.2.0) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.4) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.4) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.0) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.0) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.6.0) lib/web_console/middleware.rb:137:in `call_app'
+web-console (3.6.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/genres" for 127.0.0.1 at 2018-04-17 00:52:19 +0800
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  Rendered genres/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 1010ms (Views: 1006.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-04-17 00:53:20 +0800
+Processing by GenresController#index as HTML
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 12ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-04-17 00:53:35 +0800
+Processing by GenresController#index as HTML
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 6ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-04-17 00:53:44 +0800
+Processing by GenresController#index as HTML
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-04-17 00:53:47 +0800
+Processing by GenresController#index as HTML
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-04-17 00:53:51 +0800
+Processing by GenresController#index as HTML
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 8ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-04-17 00:54:12 +0800
+Processing by GenresController#index as HTML
+  [1m[36mGenre Load (1.8ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/wenhao/.rbenv/versions/2.3.5/lib/ruby/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 0.0ms)
+
+
+  
+  [1m[36mCACHE Genre Load (0.0ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/wenhao/.rbenv/versions/2.3.5/lib/ruby/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+NoMethodError (undefined method `id' for #<Genre::ActiveRecord_Relation:0x00007fd87517de28>
+Did you mean?  ids):
+  
+app/controllers/genres_controller.rb:4:in `index'
+Started GET "/genres" for 127.0.0.1 at 2018-04-17 00:54:18 +0800
+Processing by GenresController#index as HTML
+  [1m[36mGenre Load (0.5ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/wenhao/.rbenv/versions/2.3.5/lib/ruby/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+  [1m[36mCACHE Genre Load (0.0ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/wenhao/.rbenv/versions/2.3.5/lib/ruby/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+NoMethodError (undefined method `id' for #<Genre::ActiveRecord_Relation:0x00007fd8763e3900>
+Did you mean?  ids):
+  
+app/controllers/genres_controller.rb:4:in `index'
+Started GET "/genres" for 127.0.0.1 at 2018-04-17 00:54:23 +0800
+Processing by GenresController#index as HTML
+  [1m[36mGenre Load (0.7ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  ↳ app/controllers/genres_controller.rb:4
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 28ms (Views: 1.5ms | ActiveRecord: 11.4ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-04-17 00:54:32 +0800
+Processing by GenresController#index as HTML
+  [1m[36mGenre Load (0.5ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  ↳ app/controllers/genres_controller.rb:4
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 21ms (Views: 0.8ms | ActiveRecord: 10.9ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-04-17 00:55:37 +0800
+Processing by GenresController#index as HTML
+  [1m[36mGenre Load (0.6ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  ↳ app/controllers/genres_controller.rb:4
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-04-17 00:55:38 +0800
+Processing by GenresController#index as HTML
+  [1m[36mGenre Load (0.5ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  ↳ app/controllers/genres_controller.rb:4
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-04-17 00:55:44 +0800
+Processing by GenresController#index as HTML
+  [1m[36mGenre Load (0.4ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  ↳ app/controllers/genres_controller.rb:4
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-04-17 00:55:49 +0800
+Processing by GenresController#index as HTML
+  [1m[36mGenre Load (0.5ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  ↳ app/controllers/genres_controller.rb:4
+  Rendering text template
+  Rendered text template (0.1ms)
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-04-17 00:56:05 +0800
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  Rendered genres/index.html.erb within layouts/application (4.0ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <% @genres.each do |genre| %>
+    2: <li><%= @genre.name %></li>
+    3: <% end %>
+  
+app/views/genres/index.html.erb:1:in `_app_views_genres_index_html_erb__565269385627440410_70283792874240'
+Started GET "/genres" for 127.0.0.1 at 2018-04-17 00:56:51 +0800
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.4ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  ↳ app/views/genres/index.html.erb:1
+  Rendered genres/index.html.erb within layouts/application (21.1ms)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 7.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <% @genres.each do |genre| %>
+    2: <li><%= @genre.name %></li>
+    3: <% end %>
+  
+app/views/genres/index.html.erb:2:in `block in _app_views_genres_index_html_erb__565269385627440410_70283792435020'
+app/views/genres/index.html.erb:1:in `_app_views_genres_index_html_erb__565269385627440410_70283792435020'
+Started GET "/genres" for 127.0.0.1 at 2018-04-17 00:57:03 +0800
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.5ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  ↳ app/views/genres/index.html.erb:1
+  Rendered genres/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 28ms (Views: 24.7ms | ActiveRecord: 0.5ms)
+
+
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGenre Create (1.2ms)[0m  [1m[32mINSERT INTO "genres" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "ballad"], ["description", "soothing"], ["created_at", "2018-04-16 16:58:07.307128"], ["updated_at", "2018-04-16 16:58:07.307128"]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Create (2.2ms)[0m  [1m[32mINSERT INTO "songs" ("name", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "What's love"], ["genre_id", 2], ["created_at", "2018-04-16 16:59:32.940276"], ["updated_at", "2018-04-16 16:59:32.940276"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/genres" for 127.0.0.1 at 2018-04-17 01:00:04 +0800
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/wenhao/.rbenv/versions/2.3.5/lib/ruby/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (1.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  ↳ app/views/genres/index.html.erb:1
+  Rendered genres/index.html.erb within layouts/application (22.5ms)
+Completed 200 OK in 364ms (Views: 333.6ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-04-17 01:00:28 +0800
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (1.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  ↳ app/views/genres/index.html.erb:2
+  Rendered genres/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 39ms (Views: 34.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/genres/1/songs" for 127.0.0.1 at 2018-04-17 01:03:51 +0800
+Processing by SongsController#index as HTML
+  Parameters: {"genre_id"=>"1"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant SongsController::Songs):
+  
+app/controllers/songs_controller.rb:3:in `index'
+Started GET "/genres/1/songs" for 127.0.0.1 at 2018-04-17 01:05:41 +0800
+Processing by SongsController#index as HTML
+  Parameters: {"genre_id"=>"1"}
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/genres/1/songs" for 127.0.0.1 at 2018-04-17 01:05:53 +0800
+Processing by SongsController#index as HTML
+  Parameters: {"genre_id"=>"1"}
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/genres/1/songs" for 127.0.0.1 at 2018-04-17 01:06:17 +0800
+Processing by SongsController#index as HTML
+  Parameters: {"genre_id"=>"1"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant SongsController::Songs):
+  
+app/controllers/songs_controller.rb:3:in `index'
+Started GET "/genres/1/songs" for 127.0.0.1 at 2018-04-17 01:06:31 +0800
+Processing by SongsController#index as HTML
+  Parameters: {"genre_id"=>"1"}
+  [1m[36mSong Load (2.8ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE (1) ORDER BY "songs"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/songs_controller.rb:3
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 10.9ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "songs".* FROM "songs" WHERE (1) ORDER BY "songs"."i...
+                                              ^
+: SELECT  "songs".* FROM "songs" WHERE (1) ORDER BY "songs"."id" ASC LIMIT $1):
+  
+app/controllers/songs_controller.rb:3:in `index'
+Started GET "/genres/1/songs" for 127.0.0.1 at 2018-04-17 01:06:34 +0800
+Processing by SongsController#index as HTML
+  Parameters: {"genre_id"=>"1"}
+  [1m[36mSong Load (0.9ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE (1) ORDER BY "songs"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/songs_controller.rb:3
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.9ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "songs".* FROM "songs" WHERE (1) ORDER BY "songs"."i...
+                                              ^
+: SELECT  "songs".* FROM "songs" WHERE (1) ORDER BY "songs"."id" ASC LIMIT $1):
+  
+app/controllers/songs_controller.rb:3:in `index'
+Started GET "/genres/1/songs" for 127.0.0.1 at 2018-04-17 01:07:01 +0800
+  
+SyntaxError (/Users/wenhao/wdi/week8/sortify-rails/app/controllers/songs_controller.rb:3: syntax error, unexpected '=', expecting ')'
+		@songs = Song.where(:genre_id = params[:genre_id]).first
+		                               ^
+/Users/wenhao/wdi/week8/sortify-rails/app/controllers/songs_controller.rb:3: syntax error, unexpected ')', expecting keyword_end
+		@songs = Song.where(:genre_id = params[:genre_id]).first
+		                                                  ^):
+  
+app/controllers/songs_controller.rb:3: syntax error, unexpected '=', expecting ')'
+app/controllers/songs_controller.rb:3: syntax error, unexpected ')', expecting keyword_end
+Started GET "/genres/1/songs" for 127.0.0.1 at 2018-04-17 01:07:49 +0800
+Processing by SongsController#index as HTML
+  Parameters: {"genre_id"=>"1"}
+  [1m[36mSong Load (1.6ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."genre_id" = $1 ORDER BY "songs"."id" ASC LIMIT $2[0m  [["genre_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/songs_controller.rb:3
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 25ms (Views: 1.0ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/genres/1/songs" for 127.0.0.1 at 2018-04-17 01:07:56 +0800
+Processing by SongsController#index as HTML
+  Parameters: {"genre_id"=>"1"}
+  [1m[36mSong Load (0.7ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."genre_id" = $1 ORDER BY "songs"."id" ASC LIMIT $2[0m  [["genre_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/songs_controller.rb:3
+  Rendering songs/index.html.erb within layouts/application
+  Rendered songs/index.html.erb within layouts/application (6.9ms)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 11.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for #<Song:0x00007f972c6c5aa0>):
+    1: <h1>List of songs </h1>
+    2: <% @songs.each do |song| %>
+    3: <li><%= song.name %></li>
+    4: <% end %>
+  
+app/views/songs/index.html.erb:2:in `_app_views_songs_index_html_erb__4353782113186141441_70143630981560'
+Started GET "/genres/1/songs" for 127.0.0.1 at 2018-04-17 01:08:25 +0800
+Processing by SongsController#index as HTML
+  Parameters: {"genre_id"=>"1"}
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.5ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."genre_id" = $1[0m  [["genre_id", 1]]
+  ↳ app/views/songs/index.html.erb:2
+  Rendered songs/index.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 49ms (Views: 34.0ms | ActiveRecord: 7.6ms)
+
+
