@@ -15,19 +15,14 @@ For this exercise, we'll create a "Sortify" Rails app which stores songs.
 
 * Seed your database with your own sample data of songs and genres from a seed file
 
-* Implement controllers and return views for:
+* Implement controllers and views for:
   - show all genres `/genres/`
-  - show all songs of one genre `/genres/:id/songs/`
-  - show a particular song `/genres/:id/songs/:id/`
+  - show all songs from one genre `/genres/:id/songs/`
 
 
 ### Part 2
 * Sometimes songs can be classified into more than one genre, therefore we need to modify our app.
 
-* To reset your database and rollback migrations:
-```
-rails db:reset
-```
 * Change your song model to just have a name
 
 * Create a join table GenresSongs
@@ -38,7 +33,7 @@ rails db:reset
 
 * Seed your database  
 
-* Use the command line to add a song to a genre
+* Use the command line to add a song to a couple of genres
 
 * Implement a view such that when showing a specific song, display the song name and the list of genres associated with it.
 
