@@ -1,0 +1,12 @@
+<h1><% if !@genre.nil? %> <%= @genre.name %> <% end %> Song Lists</h1>
+<ul>
+    <% @songs.each do |s| %>
+        <% if !@genre.nil? %>
+            <%= link_to genre_song_path(@genre, s), :action => 'go' do %>
+                <li><%= s.name %> </li>
+            <% end %>
+        <% else %>
+            <li> <%= link_to s.name, song_path(s) %> </li>
+        <% end %>
+    <% end %>
+</ul>

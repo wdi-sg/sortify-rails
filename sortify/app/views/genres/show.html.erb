@@ -1,0 +1,13 @@
+<h1><%= @genre.name %></h1>
+<div class="genre-description"><%= @genre.description %></div>
+<%= link_to 'Add Song', new_genre_song_path(@genre) %>
+<% if !@songs.nil? %>
+    <h2>songs at <%= @genre.name %></h2>
+        <ul>
+            <% @songs.each do |s| %>
+                <%= link_to song_path(s), :action => 'go' do %>
+                    <li><%= s.name %></li>
+                <% end %>
+            <% end%>
+        </ul>
+<% end %>
