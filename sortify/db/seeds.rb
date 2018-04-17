@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 song_list = [
-    [ "Finesse" ],
-    [ "All The Stars" ],
-    [ "Pray For Me" ],
-    [ "Bad At Love" ]
+    "Finesse" ,
+    "All The Stars" ,
+    "Pray For Me" ,
+    "Bad At Love" 
     ]
 
 song_list.each do |name|
