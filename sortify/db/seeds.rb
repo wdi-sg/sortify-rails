@@ -15,8 +15,8 @@ pop = Genre.create(name: "Pop", description: "Hit Songs")
 
 # Create and save new songs
 Song.create([
-    {name: "Love Song", genre: romance},
-    {name: "My Love", genre: romance},
-    {name: "Bang Bang Bang", genre: pop},
-    {name: "Gangnam Style", genre: pop}
+    {name: "Love Song"},
+    {name: "My Love"},
+    {name: "Bang Bang Bang"},
+    {name: "Gangnam Style"}
   ])

@@ -3,5 +3,9 @@ Rails.application.routes.draw do
   resources :genres do
     resources :songs
   end
-  
+
+  resources :songs do
+    resources :genres
+  end
+
 end

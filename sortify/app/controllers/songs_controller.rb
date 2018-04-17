@@ -2,8 +2,8 @@ class SongsController < ApplicationController
 
   def index
     @genre_id = params[:genre_id]
-    @genre_name = Song.find_by(genre_id: @genre_id).genre.name
-    @songs = Song.where(genre_id: @genre_id)
+    @genre = Genre.find_by(id: @genre_id)
+    @songs = @genre.songs
   end
 
   def new

@@ -5,7 +5,7 @@
     <title></title>
   </head>
   <body>
-    <h1>List of Songs under <% @genre_name %> genre</h1>
+    <h1>List of Songs under <%= @genre.name %> genre</h1>
     <% @songs.each do |song| %>
       <li><%= song.name %></li>
     <% end %>
