@@ -4,6 +4,9 @@ resources :genre do
 	resources :songs
 end
 
-resources :songs
+resources :songs do
+	resources :genre
+
+end
 
 end
