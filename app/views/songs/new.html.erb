@@ -1,0 +1,22 @@
+<%= form_with scope: :song, url: songs_path, local: true do |form| %>
+<% if @genre_id.nil? %>
+<%= form.collection_check_boxes :genre_ids, @genres, :id, :name %>
+<%= form.hidden_field :genre_id, :value => @genre_id %>
+<% else %>
+<input type="hidden" name="genre_id" value="<%= @genre_id %>" /> 
+<% end %>
+
+
+<p>
+	<%= form.label :name %><br>
+	<%= form.text_area :name %>
+</p>
+
+<p>
+	<%= form.submit %>
+</p>
+<% end %>
+
+<p class="error">
+  <%= show_errors(@songs, :name) %>
+</p>
