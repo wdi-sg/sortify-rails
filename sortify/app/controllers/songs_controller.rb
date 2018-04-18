@@ -1,4 +1,6 @@
 class SongsController < ApplicationController
+    before_action :authenticate_user!, :except => [:show, :index]
+
     def index
         if !params[:genre_id].nil?
             @genre = Genre.find(params[:genre_id])
@@ -14,9 +16,19 @@ class SongsController < ApplicationController
     end
 
     def new
+        @song = Song.new
+        @user = current_user
     end
 
     def create
+        @song = Song.new(song_params)
+        @user = User.find(params[:user][:id])
+
+        if @song.save
+            redirect_to @song
+        else
+            render 'new'
+        end
     end
 
     def edit
@@ -31,5 +43,6 @@ class SongsController < ApplicationController
     private
 
     def song_params
-    end
+        params.require(:song).permit(:name)
+      end
 end
