@@ -10,3 +10,8 @@
         <% end %>
     <% end %>
 </ul>
+
+<% if user_signed_in? %>
+<%= link_to 'New Song', new_song_path %>
+<%= link_to 'log out', destroy_user_session_path, method: :delete %>
+<% end %>

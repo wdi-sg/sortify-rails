@@ -1,4 +1,5 @@
 class SongsController < ApplicationController
+  before_action :authenticate_user!, :except => [ :show, :index ]
   def index
     if !params[:genre_id].nil?
       @genre = Genre.find(params[:genre_id])
