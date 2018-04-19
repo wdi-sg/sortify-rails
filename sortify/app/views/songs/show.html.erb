@@ -1,13 +1,17 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <h1>Displaying genres of <%= @song.name %></h1>
+
+<h2>Song: <%= @song.title %></h2>
+
+<h3>Genres: </h3>
+<li>
+  <% if (@song.genres.length > 1) %>
     <% @song.genres.each do |genre| %>
-      <li><%= genre.name %></li>
+      <%= genre.name %>
     <% end %>
-  </body>
-</html>
+  <% else %>
+    <%= @song.genres[0].name %>
+  <% end %>
+</li>
+
+<br>
+
+<%= link_to 'Back', songs_path %>
