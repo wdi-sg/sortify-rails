@@ -1,0 +1,23 @@
+<h1>Job Index Page</h1>
+
+<%= link_to 'Create New Job', new_job_path %><br><br>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Img</th>
+		<th>Level</th>
+	</tr>
+
+	<% @jobs.each do |job| %>
+		<tr>
+			<td><%= job.name %></td>
+			<td><img src= <%= job.img %>></td>
+			<td><%= job.lvl %></td>
+
+			<td><%= link_to 'Show', job_path(job) %></td>
+			<td><%= link_to 'Edit', edit_job_path(job) %></td>
+			<td><%= link_to 'Delete', job_path(job), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+		</tr>
+	<% end %>
+</table>
