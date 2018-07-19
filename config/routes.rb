@@ -5,5 +5,5 @@ Rails.application.routes.draw do
     resources :songs, only: [:index]
   end
 
-  resources :songs, only: [:show]
+  resources :songs, only: [:show, :new, :create]
 end

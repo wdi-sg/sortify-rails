@@ -1,0 +1,18 @@
+<h1>Songs#new</h1>
+
+<h2>Create A Song</h2>
+
+<%= form_with scope: :song, url: songs_path, local: true do |form| %>
+
+  <%= form.collection_check_boxes :genre_ids, @genres, :id, :name %>
+
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_area :name %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
