@@ -1,0 +1,11 @@
+<h1><%= @genre.name %></h1>
+
+
+<h3>List of songs</h3>
+<ul>
+  <% @songs.each do |song| %>
+    <li><%= link_to song.name, song_path(song.id) %></li>
+  <% end %>
+</ul>
+
+<h3><%= link_to 'Back', root_path %></h3>

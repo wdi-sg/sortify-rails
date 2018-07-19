@@ -1,0 +1,17 @@
+<% if @genres %>
+  <h1>Genres Under <%= @song.name %></h1>
+
+  <ul>
+    <% @genres.each do |g| %>
+      <li><%= g.name %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <h1>Genre Index</h1>
+
+  <% @genre.each do |g| %>
+    <%= g.name %>
+  <% end %>
+<% end %>
+
+<h3><%= link_to 'Back', root_path %></h3>

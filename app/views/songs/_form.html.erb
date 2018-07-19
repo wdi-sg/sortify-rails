@@ -1,0 +1,5 @@
+<%= form_with model: @song, local: true do |f| %>
+  <%= f.text_field :name %>
+  <%= f.collection_check_boxes :genre_ids, @genres, :id, :name  %>
+  <%= f.submit %>
+<% end %>

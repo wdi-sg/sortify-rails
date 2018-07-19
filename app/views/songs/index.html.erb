@@ -1,0 +1,14 @@
+<h1>Songs Index</h1>
+
+<h3><%= link_to 'New Song', new_song_path %></h3>
+<h3><%= link_to 'New Genre', new_genre_path %></h3>
+
+<ul>
+  <% @songs.each do |s| %>
+    <li>
+      <%= s.name %> |
+      <%= link_to 'SONGS#SHOW', song_path(s.id) %> |
+      <%= link_to 'GENRES#INDEX', song_genres_path(s.id) %>
+    </li>
+  <% end %>
+</ul>
