@@ -1,0 +1,10 @@
+<h1>Songs</h1>
+<p>Title: </p>
+<p><%= @song_id.name.capitalize %></p>
+<p>Genres: </p>
+<% @song_id.genres.each_with_index do |genre, index| %>
+  <p><%= index + 1 %>) <%= genre.name.capitalize %></p>
+<% end %>
+
+
+
