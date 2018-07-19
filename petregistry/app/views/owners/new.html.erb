@@ -1,0 +1,19 @@
+<h1>New Owners</h1>
+
+<%= form_with scope: :owner, url: owners_path, local: true do |form| %>
+
+  <% if @pets.size > 0 %>
+  <!-- if have no pets in the database yet -->
+  <%= form.collection_check_boxes :pet_ids, @pets, :id, :name %>
+  <% end %>
+
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
