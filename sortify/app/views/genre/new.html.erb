@@ -1,0 +1,20 @@
+<h1>ADD A NEW GENRE</h1>
+
+<%= form_with scope: :genre, url: genres_path, local: true do |form| %>
+  <p>
+    <%= form.label :Name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :Name %><br>
+    <%= form.collection_check_boxes :songs_ids, @songs, :id, :name %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+
+<%= link_to 'Back', genres_path %>

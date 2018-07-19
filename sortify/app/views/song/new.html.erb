@@ -1,0 +1,25 @@
+<h1>ADD A NEW SONG</h1>
+
+<%= form_with scope: :song, url: songs_path, local: true do |form| %>
+  <p>
+    <%= form.label :Name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :Artist %><br>
+    <%= form.text_field :artist %>
+  </p>
+
+  <p>
+    <%= form.label :Genre %><br>
+    <%= form.collection_check_boxes :genre_ids, @genre, :id, :name %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+
+<%= link_to 'Back', songs_path %>
