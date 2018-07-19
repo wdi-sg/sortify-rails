@@ -1,0 +1,17 @@
+<h1><% if !@genre.nil? %> <%= @genre.name %> <% end %> Song Lists</h1>
+<ul>
+    <% @songs.each do |s| %>
+        <% if !@genre.nil? %>
+            <%= link_to genre_song_path(@genre, s), :action => 'go' do %>
+                <li><%= s.name %> </li>
+            <% end %>
+        <% else %>
+            <li> <%= link_to s.name, song_path(s) %> </li>
+        <% end %>
+    <% end %>
+</ul>
+
+<% if user_signed_in? %>
+<%= link_to 'New Song', new_song_path %>
+<%= link_to 'log out', destroy_user_session_path, method: :delete %>
+<% end %>
