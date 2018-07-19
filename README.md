@@ -1,6 +1,6 @@
-# "Sortify" - Rails Associations (with Postgres SQL)
+# Sortify - Rails Associations
 
-For this exercise, we'll create a "Sortify" Rails app which stores songs.
+For this exercise, we'll create a "Sortify" Rails app which stores songs and genres.
 
 ## Deliverables
 ### Part 1
@@ -39,7 +39,8 @@ For this exercise, we'll create a "Sortify" Rails app which stores songs.
 
 
 ## Further
-* Implement full CRUD functionality for songs and genres
+* Implement full CRUD functionality for songs and genres.
+* Implement nested routes for this app.
 
 
 
@@ -47,3 +48,49 @@ For this exercise, we'll create a "Sortify" Rails app which stores songs.
 * https://wdi-sg.github.io/gitbook-2018/06-ruby-rails/rails-1-M/readme.html
 
 * https://wdi-sg.github.io/gitbook-2018/06-ruby-rails/rails-M-M/readme.html
+
+## Not tired of pokemon yet?
+Implement a pokedex app after this json file: [https://github.com/wdi-sg/pokedex-express/blob/master/pokedex.json](https://github.com/wdi-sg/pokedex-express/blob/master/pokedex.json)
+
+```
+{
+    "id": 1,
+    "num": "001",
+    "name": "Bulbasaur",
+    "img": "http://www.serebii.net/pokemongo/pokemon/001.png",
+    "type": [
+      "Grass",
+      "Poison"
+    ],
+    "height": "0.71 m",
+    "weight": "6.9 kg",
+    "candy": "Bulbasaur Candy",
+    "candy_count": 25,
+    "egg": "2 km",
+    "spawn_chance": 0.69,
+    "avg_spawns": 69,
+    "spawn_time": "20:00",
+    "multipliers": [1.58],
+    "weaknesses": [
+      "Fire",
+      "Ice",
+      "Flying",
+      "Psychic"
+    ],
+    "next_evolution": [{
+      "num": "002",
+      "name": "Ivysaur"
+    }, {
+      "num": "003",
+      "name": "Venusaur"
+    }]
+  }
+```
+
+Start with creating a join table for "types". Pokemon has many types, types has many pokemon.
+
+## Further
+* Implement full CRUD functionality for songs and genres.
+* Implement nested routes for this app.
+
+
