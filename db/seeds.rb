@@ -15,13 +15,18 @@ json = ActiveSupport::JSON.decode(File.read('db/seeds.json'))
 json['genre'].each do |item|
     new_genre = Genre.new
     new_genre.name = item['name']
-    new_genre.description = "The #{item['name']} genre"
+    new_genre.description = "The genre is #{item['name']}"
     new_genre.save
 end
 
 json['song'].each do |item|
     new_song = Song.new
     new_song.name = item['name']
-    new_song.genre_id = Genre.find_by(name: item['genre']).id
+    # new_song.genre_id = Genre.find_by(name: item['genre']).id
+
+    item['genre'].each do |genre|
+        new_song.genres << Genre.find_by(name: genre)
+    end
+
     new_song.save
 end

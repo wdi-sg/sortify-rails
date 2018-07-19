@@ -1,5 +1,5 @@
 class Genre < ApplicationRecord
-  has_many :song
+  has_and_belongs_to_many :songs
 end
 
 
