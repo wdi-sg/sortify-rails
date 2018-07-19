@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  resources :songs
-  resources :genres
+  resources :songs do
+    resources :genres
+  end
 
-  root 'songs#index'
-  root 'genres#index'
+  resources :genres do
+    resources :songs
+  end
 end

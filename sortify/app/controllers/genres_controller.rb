@@ -1,8 +1,8 @@
 class GenresController < ApplicationController
   
-
     def index
       @genre = Genre.all
+      @song = Song.all
     end
 
     def show
@@ -39,5 +39,5 @@ class GenresController < ApplicationController
     def genre_params
       params.require(:genre).permit(:name, :song_ids => [])
     end
-end
 
+end
