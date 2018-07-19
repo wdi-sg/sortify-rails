@@ -19,9 +19,9 @@ json['genre'].each do |item|
     new_genre.save
 end
 
-# json['song'].each do |item|
-#     new_song = Song.new
-#     new_song.name = item['name']
-#     new_song.genre_id = Genre.find_by(name: item['genre']).id
-#     new_song.save
-# end
+json['song'].each do |item|
+    new_song = Song.new
+    new_song.name = item['name']
+    new_song.genre_id = Genre.find_by(name: item['genre']).id
+    new_song.save
+end
