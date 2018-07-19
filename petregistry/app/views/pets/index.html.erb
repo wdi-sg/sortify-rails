@@ -1,0 +1,12 @@
+<h1>Index Pet</h1>
+
+<%= link_to "New", new_pet_path %>
+<br><br>
+<%= link_to "See Owners", owners_path %>
+<br><br><br>
+
+<% @pets.each do |pet| %>
+
+	<%= link_to pet.name, pet_path(pet) %><br>
+
+<% end %>

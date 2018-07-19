@@ -1,0 +1,24 @@
+<h1>Edit Pet</h1>
+
+<%= form_with(model: @pet, local: true) do |form| %>
+
+  <% if @pet.owners.size > 0 %>
+  <!-- if have no owners in the database yet -->
+  <%= form.collection_check_boxes :owner_ids, @pet.owners, :id, :name %>
+  <% end %>
+
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :species %><br>
+    <%= form.text_field :species %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>

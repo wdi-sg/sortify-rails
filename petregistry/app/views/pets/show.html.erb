@@ -1,0 +1,24 @@
+<h1>Show Pet</h1>
+
+Name: <%= @pet.name %><br>
+Species: <%= @pet.species %><br><br>
+
+<%= link_to 'Edit', edit_pet_path(@pet) %><br>
+<%= link_to 'Delete', pet_path(@pet), method: :delete, data: { confirm: 'Are You Sure???'} %><br><br><br>
+
+
+<% if @pet.owners.size > 0 %>
+<h3>Owner</h3>
+
+<% @pet.owners.each do |owner| %>
+<%= owner.name %><br>
+<% end %>
+<br>
+<%= link_to 'See Owners Only', pet_owners_path(@pet) %>
+
+<% end %>
+
+<br><br><br>
+<%= link_to 'Back', pets_path %>
+
+
