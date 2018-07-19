@@ -9,6 +9,7 @@ class SongsController < ApplicationController
   
       @song.save
       redirect_to @song
+      # render plain: params[:song].inspect
     end
   
     def show
@@ -16,14 +17,14 @@ class SongsController < ApplicationController
   
       @song = Song.find(params[:id])
   
-      if params[:genre_id].to_i != @song.genre.id
-        # do something
-      end
+      # if params[:genre_id].to_i != @song.genre.id
+      #   # do something
+      # end
     end
   
   private
   
     def song_params
-      params.require(:song).permit(:genre, :genre_id, :genre_ids => [])
+      params.require(:song).permit(:title, :singer, :genre, :genre_id, :genre_ids => [])
     end
   end

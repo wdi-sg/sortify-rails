@@ -16,14 +16,14 @@ class GenresController < ApplicationController
   
       @genre = Genre.find(params[:id])
   
-      if params[:genre_id].to_i != @genre.song.id
-        # do something
-      end
+      # if params[:song_id].to_i != @genre.song.id
+      #   # do something
+      # end
     end
   
   private
   
     def genre_params
-      params.require(:genre).permit(:title, :song_id, :song_ids => [])
+      params.require(:genre).permit(:genre, :song_id, :song_ids => [])
     end
   end
