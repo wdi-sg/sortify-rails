@@ -92,7 +92,7 @@ Start with creating a join table for "types". Pokemon has many types, types has 
 You could also implement one of the other many-to-many relationships in the JSON file- (e.g. weaknesses, next evolution, etc.)
 
 ## Further
-* Implement full CRUD functionality for songs and genres.
+* Implement full CRUD functionality for pokemon and types (or other attribute).
 * Implement nested routes for this app.
 
 
