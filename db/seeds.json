@@ -1,0 +1,86 @@
+{
+  "song": [
+    {
+      "name": "R.E.M. - Man On The Moon",
+      "genre": "Pop"
+    },
+    {
+      "name": "The Verve - Drugs Don't Work",
+      "genre": "Rock"
+    },
+    {
+      "name": "The Cranberries - Linger",
+      "genre": "Rock"
+    },
+    {
+      "name": "Dire Straits - So Far Away",
+      "genre": "Blues"
+    },
+    {
+      "name": "Simon & Garfunkel - The Sound of Silence",
+      "genre": "Folk"
+    },
+    {
+      "name": "Aerosmith - I Don't Want to Miss a Thing",
+      "genre": "Hard Rock"
+    },
+    {
+      "name": "Scorpions - Wind of Change",
+      "genre": "Hard Rock"
+    },
+    {
+      "name": "Radiohead - Karma Police",
+      "genre": "Alternative"
+    },
+    {
+      "name": "Crowded House - Don't Dream It's Over",
+      "genre": "Pop"
+    },
+    {
+      "name": "Stevie Wonder - Masterblaste",
+      "genre": "Soul"
+    },
+    {
+      "name": "Sting - Shape of My Heart",
+      "genre": "Pop"
+    },
+    {
+      "name": "Dropkick Murphys - Rose Tattoo",
+      "genre": "Irish Rock"
+    }
+  ],
+  "genre": [
+    {
+      "name": "Irish Rock",
+      "description": ""
+    },
+    {
+      "name": "Pop",
+      "description": ""
+    },
+    {
+      "name": "Soul",
+      "description": ""
+    },
+    {
+      "name": "Alternative",
+      "description": ""
+    },
+    {
+      "name": "Hard Rock",
+      "description": ""
+    },
+    {
+      "name": "Rock",
+      "description": ""
+    },
+    {
+      "name": "Blues",
+      "description": ""
+    },
+    {
+      "name": "Folk",
+      "description": ""
+    }
+  ]
+}
