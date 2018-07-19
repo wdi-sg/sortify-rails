@@ -1,0 +1,7 @@
+<p>showing single job which belongs to characters</p>
+<h1>Job</h1>
+<%= @job.job %><br>
+<h1>Character</h1>
+<% @job.characters.each do |p| %>
+<%= p.name %> <%= p.level %> <%= p.race %><br>
+<% end %>

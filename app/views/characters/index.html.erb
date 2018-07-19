@@ -1,0 +1,5 @@
+<p>you are in all characters</p>
+
+<% @character.each do |character| %>
+  <%= character.name %> <%= character.level %> <%= character.race %> <%= link_to 'View', character_path(character) %> <%= link_to 'Edit', edit_character_path(character) %><br>
+<% end %>
