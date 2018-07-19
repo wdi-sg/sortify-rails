@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :genres, only: [:index] do
     resources :songs, only: [:index]
   end
+
+  resources :songs, only: [:show]
 end
