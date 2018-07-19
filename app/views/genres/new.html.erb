@@ -1,0 +1,13 @@
+<%= form_with scope: :genre, url: genres_path, local: true do |form| %>
+
+  <p>
+    <%= form.label :genre %><br>
+    <%= form.text_field :genre %>
+  </p>
+
+  <%= form.collection_check_boxes :song_ids, @songs, :id, :title %>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
