@@ -1,0 +1,30 @@
+<h1>Edit Character</h1>
+
+<%= form_with(model: @character, local: true) do |form| %>
+
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :level %><br>
+    <%= form.text_field :level %>
+  </p>
+
+  <p>
+    <%= form.label :race %><br>
+    <%= form.text_field :race %>
+  </p>
+
+    <p>
+	  <%= form.collection_check_boxes :job_ids, @job, :id, :job %>
+    </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
+
+<%= link_to 'Back', characters_path %>

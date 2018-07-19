@@ -1,0 +1,5 @@
+<p>you are in all jobs</p>
+
+<% @job.each do |job| %>
+  <%= job.job %> <%= job.level %> <%= job.role %> <%= link_to 'View', job_path(job) %><br>
+<% end %>

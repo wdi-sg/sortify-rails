@@ -1,0 +1,7 @@
+<p>showing single character</p>
+<h1>Name</h1>
+<%= @character.name %><br>
+<h1>Jobs</h1>
+<% @character.jobs.each do |p| %>
+<%= p.job %> <%= p.level %> <%= p.role %><br>
+<% end %>
