@@ -89,6 +89,8 @@ Implement a pokedex app after this json file: [https://github.com/wdi-sg/pokedex
 
 Start with creating a join table for "types". Pokemon has many types, types has many pokemon.
 
+You could also implement one of the other many-to-many relationships in the JSON file- (e.g. weaknesses, next evolution, etc.)
+
 ## Further
 * Implement full CRUD functionality for songs and genres.
 * Implement nested routes for this app.
