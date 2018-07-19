@@ -1,0 +1,14 @@
+<img src= <%=@job.img %>>
+
+<p>
+	<strong>Job Name:</strong>
+	<%= @job.name %>
+</p>
+
+<p>
+	<strong>Level:</strong>
+	<%= @job.lvl %>
+</p>
+
+<%= link_to 'Back to Jobs Index', jobs_path %>
+<%= link_to 'Edit', edit_job_path(@job) %>
