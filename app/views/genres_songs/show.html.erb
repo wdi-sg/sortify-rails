@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Genre:</strong>
+  <%= @genres_song.genre %>
+</p>
+
+<p>
+  <strong>Song:</strong>
+  <%= @genres_song.song %>
+</p>
+
+<%= link_to 'Edit', edit_genres_song_path(@genres_song) %> |
+<%= link_to 'Back', genres_songs_index_path %>
