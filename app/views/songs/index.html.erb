@@ -1,0 +1,16 @@
+<h1>Songs</h1>
+
+
+
+<table>
+  <tr>
+    <th>Songs</th>
+    <th>Genre</th>    
+  </tr>
+
+  <% @songs.each do |song| %>
+    <tr>
+      <td><%= song.name %></td>
+    </tr>
+  <% end %>
+</table>
