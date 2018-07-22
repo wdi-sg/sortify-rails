@@ -1,0 +1,21 @@
+<div class="container">
+	<h1>Users</h1>
+	<table class="table table-dark table-hover">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @user.each do |u| %>
+				<tr>
+					<td onclick="window.location='/users/<%= u.id %>/players';"><%= u.name %></td>
+					<td onclick="window.location='/users/<%= u.id %>/players';"><%= u.email %></td>
+					<td><%= link_to 'Edit', edit_user_path(u), class: "btn btn-danger" %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

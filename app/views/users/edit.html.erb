@@ -1,0 +1,28 @@
+<div class="container">
+	<h3>Edit User</h3>
+
+	<%= form_with model: @user, url: user_path, local: true do |f| %>
+
+		<div class="form-group">
+			<%= f.label(:name, "Name") %>
+			<%= f.text_field :name, class: "form-control" %>
+		</div>
+
+		<div class="form-group">
+			<%= f.label(:email, "Email") %>
+			<%= f.text_field :email, class: "form-control" %>
+		</div>
+
+		<div class="form-group">
+			<button type="submit" class="btn btn-danger">Update</button>
+		</div>
+
+		<div class="form-group">
+			<%= link_to 'Delete', user_path(@user),
+		        method: :delete,
+		        data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
+		    %>
+		</div>
+
+	<% end %>
+</div>
