@@ -1,0 +1,21 @@
+<div class="container">
+	<h1>Players</h1>
+	<table class="table table-dark table-hover">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Team</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @player.each do |p| %>
+				<tr>
+					<td onclick="window.location='/players/<%= p.id %>';"><img class="photo" src="<%= p.img %>"/><p><%= p.name %></p></td>
+					<td onclick="window.location='/players/<%= p.id %>';"><img class="logo" src="<%= p.team_img %>"/><p><%= p.team %></p></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+	<button class="back btn btn-danger">Go Back</button>
+</div>
