@@ -1,0 +1,10 @@
+<h1>Sortify</h1>
+<h2>Here are the genres</h2>
+
+<ul>
+<% @genres.each do |genre| %>
+    <h4><li><%= link_to genre.name, genre_path(genre) %></li></h4>
+<% end %>
+</ul>
+
+<h3><%= link_to "Back to main", root_path %></h3>

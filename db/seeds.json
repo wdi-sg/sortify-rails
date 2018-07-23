@@ -1,0 +1,79 @@
+{
+    "song": [
+        {
+            "name": "Adele - Hello",
+            "genre": "Pop"
+        },
+        {
+            "name": "AC/DC - Back In Black",
+            "genre": "Rock"
+        },
+        {
+            "name": "Aerosmith - I don't Want To Miss a Thing",
+            "genre": "Rock"
+        },
+        {
+            "name": "Alanis Morissette - Ironic",
+            "genre": "Alternative"
+        },
+        {
+            "name": "Alicia Keys - Girl On Fire",
+            "genre": "R&B"
+        },
+        {
+            "name": "Alicia Keys - Empire State of Mind, Pt. II - Broken Down",
+            "genre": "R&B"
+        },
+        {
+            "name": "Alicia Keys - If I Ain't Got You",
+            "genre": "R&B"
+        },
+        {
+            "name": "Andy Grammer - Fresh Eyes",
+            "genre": "Pop"
+        },
+        {
+            "name": "Avicii - Wake Me Up",
+            "genre": "House"
+        }
+    ],
+    "genre": [
+        {
+            "name": "Pop",
+            "description": "This is pop"
+        },
+        {
+            "name": "Punk",
+            "description": "This is punk"
+        },
+        {
+            "name": "House",
+            "description": "This is house"
+        },
+        {
+            "name": "Rock",
+            "description": "This is rock"
+        },
+        {
+            "name": "Blues",
+            "description": "This is blues"
+        },
+        {
+            "name": "Alternative",
+            "description": "This is alternative"
+        },
+        {
+            "name": "R&B",
+            "description": "This is R&B"
+        },
+        {
+            "name": "Metal",
+            "description": "This is metal"
+        },
+        {
+            "name": "Other",
+            "description": "This is other"
+        }
+    ]
+ }
+ 

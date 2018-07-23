@@ -1,0 +1,14 @@
+<h1>Sortify</h1>
+<% if @genre %>
+<h2><%= @genre.name %> songs</h2>
+<% else %>
+<h2>Here are the songs</h2>
+<% end %>
+
+<ul>
+<% @songs.each do |song| %>
+    <h4><li><%= link_to song.name, song_path(song) %></li></h4>
+<% end %>
+</ul>
+
+<h3><%= link_to "Back to main", root_path %></h3>
