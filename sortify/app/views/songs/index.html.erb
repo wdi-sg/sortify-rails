@@ -1,0 +1,78 @@
+
+<div class="container">
+    <div class="jumbotron">
+      <h1 class="display-4">
+        <% if params[:genre_id] %>
+          Songs under <%= @genre_name %> genre
+        <% else %>
+          All Songs
+        <% end %>
+      </h1>
+      <p class="lead">Contains all the best songs you can find...</p>
+      <hr class="my-4">
+      <h5>
+        <% if user_signed_in? %>
+          Logged in as <%= current_user.email %>
+        <% end %>
+      </h5>
+      <p class="lead">
+        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+      </p>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <%= link_to 'New Song', new_song_path %>
+  </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <a id="sort" class="btn btn-primary btn-lg" href="#" role="button">sort</a>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Song Title</th>
+          <th scope="col">Genre</th>
+          <th scope="col">Created</th>
+
+        </tr>
+      </thead>
+      <tbody>
+      <% @songs.each do |song| %>
+        <tr>
+          <td><%= song.id %></td>
+          <td class="song-title"><%= song.title %></td>
+          <td class="song-genre">
+            <% if (song.genres.length > 1) %>
+              <% song.genres.each do |genre| %>
+                <%= genre.name %>
+              <% end %>
+            <% else %>
+              <%= song.genres[0].name %>
+            <% end %>
+          </td>
+          <td class="song-created"><%= song.created_at.strftime('%d.%m.%Y') %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% if user_signed_in? %>
+      <%= link_to 'log out', destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to 'Login', new_user_session_path %>
+    <% end %>
+  </div>
+</div>

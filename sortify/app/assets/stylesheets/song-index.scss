@@ -1,0 +1,19 @@
+@mixin button-style{
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 12px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 6px;
+}
+
+.jumbotron{
+  background-image: asset-url('splash-background.jpeg');
+  background-size: cover;
+  color: white;
+
+  .btn{
+    letter-spacing: 3px;
+    background-color: #9C27B0;
+    border: #9C27B0;
+    @include button-style;
+  }
+}

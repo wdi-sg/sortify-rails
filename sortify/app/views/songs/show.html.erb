@@ -1,0 +1,17 @@
+
+<h2>Song: <%= @song.title %></h2>
+
+<h3>Genres: </h3>
+<li>
+  <% if (@song.genres.length > 1) %>
+    <% @song.genres.each do |genre| %>
+      <%= genre.name %>
+    <% end %>
+  <% else %>
+    <%= @song.genres[0].name %>
+  <% end %>
+</li>
+
+<br>
+
+<%= link_to 'Back', songs_path %>
